@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Sarooo 💗</title>
+<style>
+:root{--pink:#f3a3c7;--purple:#a990df;--deep:#805da9}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;overflow:hidden;display:grid;place-items:center;
+font-family:Arial,sans-serif;color:#805d91;
+background:radial-gradient(circle at 15% 15%,#fff 0 2px,transparent 3px),
+radial-gradient(circle at 82% 27%,#fff 0 2px,transparent 3px),
+linear-gradient(135deg,#ffe5f0,#eee5ff 55%,#ffdced)}
+.card{width:min(91vw,570px);padding:38px 22px;text-align:center;position:relative;z-index:3;
+background:#ffffffbd;border:1px solid #ffffffed;border-radius:32px;
+box-shadow:0 20px 65px #8c5c9b2b;backdrop-filter:blur(9px)}
+.kicker{font-size:13px;letter-spacing:3px;color:#aa86ba}
+h1{font-size:clamp(36px,9vw,62px);line-height:1.05;margin:18px 0 8px;color:#d969a2}
+.name{color:#9276c8}
+.sub{font-size:17px;margin:15px 0 25px;color:#9878a6}
+button{border:0;border-radius:999px;padding:15px 25px;cursor:pointer;color:white;
+font-size:17px;font-weight:bold;letter-spacing:1px;background:linear-gradient(100deg,#e887b5,#9d85d5);
+box-shadow:0 9px 24px #bd91ce66;transition:.2s}
+button:hover{transform:translateY(-3px)}
+#message{display:none;margin-top:20px;animation:fade .8s ease both}
+#message p{font-size:17px;line-height:1.9;margin:8px 0}
+.wish{font-weight:bold;color:#d45f9d;font-size:20px!important}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.balloon{position:fixed;bottom:-125px;width:53px;height:68px;border-radius:50% 50% 47% 47%;
+z-index:2;opacity:.95;box-shadow:inset -8px -8px 0 #0000000d;animation:rise linear forwards}
+.balloon:before{content:"";position:absolute;bottom:-7px;left:21px;border-left:5px solid transparent;
+border-right:5px solid transparent;border-bottom:9px solid var(--balloon)}
+.balloon:after{content:"";position:absolute;top:68px;left:26px;width:1px;height:95px;background:#9b83aa66}
+@keyframes rise{to{transform:translateY(-125vh) rotate(15deg);opacity:.12}}
+.heart-wrap{position:fixed;inset:0;z-index:4;display:none;place-items:center;pointer-events:none}
+.heart-wrap.show{display:grid}
+svg.big-heart{width:min(72vw,390px);height:auto;overflow:visible;filter:drop-shadow(0 10px 22px #d96da855)}
+.heart-path{fill:#f5a5cb;fill-opacity:.13;stroke:#d85f9d;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;
+stroke-dasharray:1100;stroke-dashoffset:1100;animation:draw 2.3s ease forwards,heartGlow 1.4s 2.2s infinite alternate}
+@keyframes draw{to{stroke-dashoffset:0;fill-opacity:.82}}
+@keyframes heartGlow{to{filter:drop-shadow(0 0 14px #e98bbd)}}
+.heart-word{font-size:clamp(18px,5vw,27px);font-weight:bold;fill:white;opacity:0;animation:fadeText .8s 2s forwards}
+@keyframes fadeText{to{opacity:1}}
+.spark{position:fixed;z-index:5;color:white;font-size:25px;pointer-events:none;animation:sparkle 1.5s ease-out forwards}
+@keyframes sparkle{0%{opacity:0;transform:scale(.3) rotate(0)}35%{opacity:1}100%{opacity:0;transform:scale(1.5) rotate(90deg)}}
+.footer{font-size:12px;color:#b18dbb;margin-top:24px}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="kicker">A LITTLE SURPRISE FOR YOU</div>
+  <h1>HAPPY<br><span class="name">BIRTHDAY</span></h1>
+  <div style="font-size:clamp(32px,8vw,49px);font-weight:bold;color:#9276c8">SARO 🎀</div>
+  <p class="sub">يومك الحلو يا سرو… 💗</p>
+  <button id="start" onclick="celebrate()">HAPPY BIRTHDAY SARO 💗</button>
+  <section id="message">
+    <p class="wish">كل عام وانتي بخير يا أحلى سرو!</p>
+    <p>يا رب سنتك الجديدة تكون مليانة فرح وضحكات وأيام حلوة تشبه قلبك.</p>
+    <p>ربي يحققلك كل اللي تتمنيه، ويخليك ديما مبسوطة ومتهنية. نحبك يا سروو 🥹💕</p>
+    <div style="font-size:26px">🎂 ✨ 💗</div>
+  </section>
+  <div class="footer">MADE WITH LOVE ♡</div>
+</main>
+<div class="heart-wrap" id="heart">
+<svg class="big-heart" viewBox="0 0 300 270" aria-label="قلب كبير">
+ <path class="heart-path" d="M150 245 C125 220 20 150 20 82 C20 15 105 0 150 65 C195 0 280 15 280 82 C280 150 175 220 150 245 Z"/>
+ <text class="heart-word" x="150" y="140" text-anchor="middle" direction="ltr">LOVE YOU!</text>
+</svg>
+</div>
+<script>
+let done=false;
+const colors=['#f3a3c7','#b9a3e8','#ffd0e5','#a990df','#f8b9d5','#cbb8f0'];
+function balloon(){
+ const b=document.createElement('div');b.className='balloon';
+ const c=colors[Math.floor(Math.random()*colors.length)];
+ b.style.background=c;b.style.setProperty('--balloon',c);
+ b.style.left=(Math.random()*100)+'vw';
+ b.style.animationDuration=(6+Math.random()*5)+'s';
+ const scale=.65+Math.random()*.75;b.style.transform=`scale(${scale})`;
+ document.body.appendChild(b);setTimeout(()=>b.remove(),12000);
+}
+function sparkle(){
+ const s=document.createElement('span');s.className='spark';s.textContent='✦';
+ s.style.left=(10+Math.random()*80)+'vw';s.style.top=(12+Math.random()*72)+'vh';
+ document.body.appendChild(s);setTimeout(()=>s.remove(),1600);
+}
+function celebrate(){
+ if(done)return;done=true;
+ document.getElementById('message').style.display='block';
+ document.getElementById('start').style.display='none';
+ const heart=document.getElementById('heart');heart.classList.add('show');
+ for(let i=0;i<55;i++)setTimeout(balloon,i*85);
+ for(let i=0;i<25;i++)setTimeout(sparkle,i*110);
+ setInterval(balloon,420);
+ setTimeout(()=>heart.classList.remove('show'),4800);
+}
+</script>
+</body>
+</html>
